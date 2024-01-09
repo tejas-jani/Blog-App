@@ -9,4 +9,4 @@ const Layer = () => {
     </main>
   );
 };
-export default Layout;
+export default Layer;
