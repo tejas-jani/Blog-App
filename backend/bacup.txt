@@ -1,0 +1,191 @@
+// import express  from "express";
+// import 'dotenv/config'
+// import cors from "cors";
+// import { default as mongoose } from "mongoose";
+// import cookieParser from "cookie-parser";
+// import  {User}  from "./models/user.js";
+// import Post from "./models/post.js";
+// import bcrypt from "bcryptjs";
+// import fs  from 'fs'; 
+
+const express =require("express");
+// require('dotenv').config()
+const app = express(); 
+// import jwt from "jsonwebtoken";  
+// import path from 'path';
+// import { uploadMiddleware } from "./multer.js";
+
+// import { authRoutes } from "./router/auth.js"
+// import {  postRoutes} from "./router/post.js"
+
+// const __dirname = path.resolve();
+// app.use(cors({ credentials: true, origin: "http://localhost:5173" }))
+// app.use(express.json()) 
+// app.use(cookieParser()) 
+// app.use("/uploads", express.static(__dirname + "/uploads"));
+ 
+// const salt = bcrypt.genSaltSync(10); 
+// const jwtSalt = process.env.JWT_SALT;
+// const mongoPass = process.env.DATABASE_CONNECTION
+   
+// mongoose.connect(`mongodb+srv://firstblog:by2oggRYLNTryxyf@cluster0.vonqnjp.mongodb.net/?retryWrites=true&w=majority`)
+
+//Routes
+// app.use("/api",authRoutes);
+// app.use("/api", postRoutes);
+console.log("hello")
+app.get("/iam",(req,res)=>{
+    console.log("iam")
+
+    return res.send("hi");
+})
+app.listen(4000);
+
+ /*
+ 
+
+ 
+const userLogined = (req, res, next) => {
+    const { token } = req.cookies;
+    jwt.verify(token, jwtSalt, {}, (err, info) => {
+        if (err)
+            res.json({ "loginErr": "Please Login First" })
+        else {
+            req.info = info;
+        }
+        next();
+    })
+}
+
+app.post("/register", async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const userinfo = await User.create({
+            username,
+            "password": bcrypt.hashSync(password, salt) 
+            // lenth of the has_password is 60
+            // and 0 to hash.length-31 character is salt  (means first 29  character )
+            // constatnt time comparision function used ro compare tow stereing
+        });
+        userinfo.password =undefined;
+        res.json(userinfo);
+    }
+    catch (e) {
+        console.log(e)
+        res.status(400).json(e);
+    }
+
+})
+
+app.post("/login", async (req, res) => {
+    const { username, password } = req.body;
+    const userDoc = await User.findOne({ username })
+    const passOk = bcrypt.compareSync(password, userDoc.password)
+    // constatnt time comparision function used ro compare two string
+
+    if (passOk) { //setup jwt token 
+        jwt.sign({ "username": userDoc?.username, "id": userDoc._id }, jwtSalt, {}, (err, token) => {
+            if (err) throw err;
+            res.cookie("token", token).json({ "username": userDoc?.username, "id": userDoc._id })
+
+        });
+    }
+
+    // const hash = "$2a$10$C63VsCzWy4ED2HSzW1LIceQ0tWzqWSUITKiTY.Gshc/APVpwts5rO"
+    // console.log(bcrypt.hashSync(password,hash.substr(0, hash.length-31)));
+    // res.send(passOk);
+})
+
+app.get("/profile", userLogined, (req, res) => {
+    
+    res.json(req.info);
+
+
+
+})
+app.post("/logout", (req, res) => {
+    res.cookie("token", "").json("ok");
+})
+
+
+app.post("/post", userLogined, uploadMiddleware.single("file"), async (req, res) => {
+    console.log("req.file");
+    console.log(req.file);
+    const { title, summary, content } = req.body;
+    // console.log({ title, summary, content });
+    const postDoc = await Post.create({
+        title,
+        summary,
+        content,
+        "cover": req.file.path.toString(),
+        author: req.info.id
+    })
+    res.json(postDoc)
+
+})
+ 
+app.get("/post", async (req, res) => {
+    const posts = await Post
+        .find({}, { content: 0, updatedAt: 0 })
+        .populate("author", ["username"])
+        .sort({ createdAt: -1 })
+        .limit(20)
+
+    res.json(posts)
+})
+
+app.get("/post/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await Post.findById(id).populate("author", ["username"])
+        // console.log(post);
+        res.json(post)
+    } catch (err) { 
+        res.json({ err })
+    }
+})
+app.get("/postforedit/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const post = await Post.findById(id);
+        const { title, summary, content, } = post;
+        res.json({ title, summary, content, });
+
+    } catch (err) {
+        res.json({ err }).status(404);
+    }
+})
+
+app.put("/post", userLogined, uploadMiddleware.single("file"), async (req, res) => {
+    const { id } = req.body;
+    let haseImg = false;
+
+    let post = {};
+    if (req.file) {
+        haseImg = true;
+        const { title, summary, content } = req.body;
+        post = { title, summary, content, "cover": req.file.path.toString() }
+    }
+    else {
+        const { title, summary, content } = req.body;
+        post = { title, summary, content }
+    }
+
+    try {
+        const oldpost = await Post.findOneAndUpdate({ _id: id }, post,  )
+        if (haseImg)             //delete old img after cover image update  
+            fs.unlink(oldpost.cover, (err) => err && console.error("file error" + err))       
+
+        res.json(oldpost);
+    } catch (err) {
+        res.json({ err }).status(404);
+    }
+})
+
+// by2oggRYLNTryxyf
+// firstblog
+
+// mongodb+srv://firstblog:<password>@cluster0.vonqnjp.mongodb.net/?retryWrites=true&w=majority  
+
+*/

@@ -1,0 +1,86 @@
+div.post-page img {
+  margin-bottom: 20px;
+  width: 100%;
+}
+div.post-page div.div-img {
+  max-height: 250px;
+  overflow: hidden;
+  display: flex;
+}
+div.post-page div.div-img img {
+  object-fit: cover;
+}
+
+div.post-page h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 10px;
+}
+div.post-page p.content::first-letter {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-right: 0.1rem;
+  color: rgb(7, 179, 179);
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+
+div.post-page a {
+  color: #333;
+  direction: underline;
+}
+div.post-page .author,
+time,
+h1,
+.edit-btn {
+  margin-left: 0.4rem;
+}
+div.post-page time {
+  font-size: small;
+}
+div.post-page .author {
+  margin-bottom: 0.6rem;
+
+  font-size: smaller;
+  font-weight: bold;
+  color: #384e5f;
+}
+
+a:hover{
+  color: #025692;
+}
+div.post-page a.edit-btn {
+  background-color: #384e5f;
+  color: #ffffff;
+  padding: 0.5rem 1.4rem;
+  border-radius: 2px;
+
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+div.post-page .edit-row {
+  color: #ffffff;
+     
+
+  margin: 0.9rem 0;
+}
+div.post-page a.edit-btn svg{
+  height: 23px;
+  padding-bottom: 2px;
+   
+  
+}
+div.post-page .content a{
+  text-decoration: underline;
+  color: #333;
+}
+div.post-page .content img{
+aspect-ratio: 16/10;
+width: 100%;
+object-fit: cover;
+ 
+}
