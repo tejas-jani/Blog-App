@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import {formatISO9075} from "date-fns"
 import "../postPage.css";
 import { UserContext } from "../UserContext";
-import fetchFromApi from "../api";
+import fetchFromApi, { BASE_URL } from "../api";
 export function PostPage() {
   const { id: urlPostId } = useParams();
   const [post, setPost] = useState(null);
@@ -46,7 +46,7 @@ export function PostPage() {
         }
       <div className="div-img">
         <img
-          src={`import.meta.env.VITE_SERVER_BASE_URL/${post?.cover}`}
+          src={`${BASE_URL}/${post?.cover}`}
           alt="post image"          
         />
       </div>

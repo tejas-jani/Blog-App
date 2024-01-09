@@ -1,9 +1,9 @@
 
 
 // this function return response and data as object
+export const BASE_URL =  import.meta.env.VITE_SERVER_BASE_URL   
 const fetchFromApi = async (endPoint, option = {}) => {
     
-    const BASE_URL =  import.meta.env.VITE_SERVER_BASE_URL   
     
     try {
         const response = await fetch(BASE_URL + endPoint, option);
