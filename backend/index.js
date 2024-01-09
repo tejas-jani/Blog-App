@@ -14,15 +14,15 @@ app.use(cors({ credentials: true, origin: process.env.FRONTEND_URL }))
 app.use(express.json())
 app.use(cookieParser())
 app.use("/uploads", express.static(__dirname + "/uploads"));
-
-if (process.env.NODE_ENV === 'production') {    
-    const mongoDBConnectionUrl=process.env.MONGODB_URI
-    mongoose.connect(mongoDBConnectionUrl)
-}
-else{
-    let mongoDBConnectionUrl = process.env.DATABASE_CONNECTION   
-    mongoose.connect(mongoDBConnectionUrl)
-}
+console.log("I AM IN")
+// if (process.env.NODE_ENV === 'production') {    
+//     const mongoDBConnectionUrl=process.env.MONGODB_URI
+//     mongoose.connect(mongoDBConnectionUrl)
+// }
+// else{
+//     let mongoDBConnectionUrl = process.env.DATABASE_CONNECTION   
+//     mongoose.connect(mongoDBConnectionUrl)
+// }
 
 //Routes 
 app.use("/api", authRoutes);
