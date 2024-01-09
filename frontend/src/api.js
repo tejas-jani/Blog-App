@@ -3,8 +3,8 @@
 // this function return response and data as object
 const fetchFromApi = async (endPoint, option = {}) => {
     
-    const BASE_URL = "http://localhost:4000/api"
-    console.log(BASE_URL + endPoint);
+    const BASE_URL =  import.meta.env.VITE_BASE_URL
+    console.log("hi",BASE_URL + endPoint);
     
     try {
         const response = await fetch(BASE_URL + endPoint, option);

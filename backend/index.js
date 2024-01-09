@@ -18,7 +18,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 const mongoDBConnectionUrl = process.env.DATABASE_CONNECTION
 mongoose.connect(mongoDBConnectionUrl)
 
-//Routes
+//Routes 
 app.use("/api", authRoutes);
 app.use("/api", postRoutes);
  

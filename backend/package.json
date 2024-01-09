@@ -15,5 +15,11 @@
   "description": "backend with mongoose",
   "main": "index.js",
   "author": "Tejas Jani",
-  "license": "MIT"
+  "license": "MIT",
+
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+
+
 }
