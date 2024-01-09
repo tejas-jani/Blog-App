@@ -15,8 +15,14 @@ app.use(express.json())
 app.use(cookieParser())
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-const mongoDBConnectionUrl = process.env.DATABASE_CONNECTION
-mongoose.connect(mongoDBConnectionUrl)
+if (process.env.NODE_ENV === 'production') {    
+    const mongoDBConnectionUrl=process.env.MONGODB_URI
+    mongoose.connect(mongoDBConnectionUrl)
+}
+else{
+    let mongoDBConnectionUrl = process.env.DATABASE_CONNECTION   
+    mongoose.connect(mongoDBConnectionUrl)
+}
 
 //Routes 
 app.use("/api", authRoutes);
