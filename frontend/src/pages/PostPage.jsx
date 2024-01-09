@@ -46,7 +46,7 @@ export function PostPage() {
         }
       <div className="div-img">
         <img
-          src={`http://localhost:4000/${post?.cover}`}
+          src={`import.meta.env.VITE_SERVER_BASE_URL/${post?.cover}`}
           alt="post image"          
         />
       </div>

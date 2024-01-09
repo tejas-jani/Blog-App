@@ -6,7 +6,7 @@ export const Post = ({title,cover,author,_id,summary,content,createdAt}) => {
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-        <img src={`http://localhost:4000/${cover}`} />        
+        <img src={`import.meta.env.VITE_SERVER_BASE_URL/${cover}`} />        
         </Link>
       </div>
       <div className="content">
