@@ -12,8 +12,10 @@ import { PostPage } from "./pages/PostPage";
 import { EditPost } from "./pages/EditPost";
 function App() {
   
-
+  console.log("hi" );
+console.log( import.meta.env.VITE_SERVER_BASE_URL );
   return (
+    
     <UserContextProvider>
 
     <Routes>
