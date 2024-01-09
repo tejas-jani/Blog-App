@@ -2,7 +2,7 @@ import React, { useState } from "react";
  
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./components/layout.jsx";
+import  Layout  from "./components/layout";
 import HomePage from "./pages/HomePage";
 import { UserContextProvider } from "./UserContext";
 import LoginPage from "./pages/LoginPage";
