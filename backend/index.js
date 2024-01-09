@@ -16,12 +16,12 @@ app.use(cookieParser())
 app.use("/uploads", express.static(__dirname + "/uploads"));
 console.log("I AM IN")
 // if (process.env.NODE_ENV === 'production') {    
-//     const mongoDBConnectionUrl=process.env.MONGODB_URI
-//     mongoose.connect(mongoDBConnectionUrl)
+    // const mongoDBConnectionUrl=process.env.MONGODB_URI
+    // mongoose.connect(mongoDBConnectionUrl)
 // }
 // else{
-//     let mongoDBConnectionUrl = process.env.DATABASE_CONNECTION   
-//     mongoose.connect(mongoDBConnectionUrl)
+    let mongoDBConnectionUrl = process.env.DATABASE_CONNECTION   
+    mongoose.connect(mongoDBConnectionUrl)
 // }
 
 //Routes 
