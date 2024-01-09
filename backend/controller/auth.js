@@ -64,7 +64,8 @@ export const login = async (req, res) => {
         //setup jwt token 
         jwt.sign({ "username": userDoc?.username, "id": userDoc._id }, jwtSalt, {}, (err, token) => {
             if (err) throw err;
-            res.cookie("token", token,{ expires: new Date(Number(new Date())) + 2 * 60 * 60 * 1000, httpOnly: true }).json({ "username": userDoc?.username, "id": userDoc._id })
+
+            res.cookie("token", token,{ expires: new Date(Number(new Date()) + (2*24*60 * 60 * 60 * 1000)), httpOnly: true }).json({ "username": userDoc?.username, "id": userDoc._id })
         });
         
 
