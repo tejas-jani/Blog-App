@@ -20,7 +20,7 @@ mongoose.connect(mongoDBConnectionUrl)
 
 //Routes 
 app.use("/api", authRoutes);
-app.use("/api", postRoutes);
+app.use("/api", postRoutes);  
  
  
 app.listen(process.env.PORT,()=>{
