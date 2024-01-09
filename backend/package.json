@@ -18,8 +18,7 @@
   "license": "MIT",
 
   "scripts": {
-    "build": "yarn add",
-     "start": "node index.js"
+    "start": "nodemon index.js"
   }
 
 
