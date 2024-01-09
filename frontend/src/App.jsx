@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Post } from "./components/Post";
-import { Header } from "./components/Header";
+import React  from "react";
+ 
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./components/layout";
 import HomePage from "./pages/HomePage";
+import { Layout } from "./components/layout";
 import { UserContextProvider } from "./UserContext";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -12,7 +11,7 @@ import { CreatePost } from "./pages/CreatePost";
 import { PostPage } from "./pages/PostPage";
 import { EditPost } from "./pages/EditPost";
 function App() {
-  const [count, setCount] = useState(0);
+   
 
   return (
     <UserContextProvider>
