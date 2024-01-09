@@ -18,7 +18,8 @@
   "license": "MIT",
 
   "scripts": {
-"start": "node index.js"
+    "build": "yarn add",
+     "start": "node index.js"
   }
 
 

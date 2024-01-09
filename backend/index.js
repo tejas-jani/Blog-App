@@ -7,9 +7,9 @@ import path from 'path';
 import { authRoutes } from "./router/auth.js"
 import { postRoutes } from "./router/post.js"
 
-const __dirname = path.resolve();       
+const __dirname = path.resolve();
 const app = express();
- 
+
 app.use(cors({
     origin: process.env.FRONTEND_URL,  // Replace with your client's domain
     credentials: true,
@@ -19,18 +19,17 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser())
 app.use("/uploads", express.static(__dirname + "/uploads"));
- 
- 
-    const mongoDBConnectionUrl = process.env.DATABASE_CONNECTION   
-    mongoose.connect(mongoDBConnectionUrl)
+
+
+const mongoDBConnectionUrl = process.env.DATABASE_CONNECTION
+mongoose.connect(mongoDBConnectionUrl)
 
 
 //Routes 
 app.use("/api", authRoutes);
-app.use("/api", postRoutes);  
- 
- 
-app.listen(process.env.PORT,()=>{
-    console.log("server is running on PORT: "+process.env.PORT );
+app.use("/api", postRoutes);
+
+
+app.listen(process.env.PORT, () => {
+    console.log("server is running on PORT: " + process.env.PORT);
 });
- 
