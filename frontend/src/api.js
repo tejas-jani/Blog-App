@@ -1,7 +1,10 @@
 
 
 // this function return response and data as object
-export const BASE_URL =  import.meta.env.VITE_SERVER_BASE_URL   
+export const BASE_URL =  import.meta.env.VITE_SERVER_BASE_URL
+export const BASE_URL_FOR_IMG =  import.meta.env.VITE_SERVER_BASE_URL_FOR_IMG
+
+
 const fetchFromApi = async (endPoint, option = {}) => {
     
     
