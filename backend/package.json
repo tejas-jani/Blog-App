@@ -16,6 +16,5 @@
   "description": "backend with mongoose",
   "main": "index.js",
   "author": "Tejas Jani",
-  "license": "MIT",
-  "scripts": {}
+  "license": "MIT" 
 }
