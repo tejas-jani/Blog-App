@@ -15,20 +15,20 @@ app.use(cors({
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
-}))
+})) 
 app.use(express.json())
 app.use(cookieParser())
 app.use("/uploads", express.static(__dirname + "/uploads"));
-
+ 
 
 const mongoDBConnectionUrl = process.env.DATABASE_CONNECTION
-mongoose.connect(mongoDBConnectionUrl)
-
+mongoose.connect(mongoDBConnectionUrl);
+ 
 
 //Routes 
 app.use("/api", authRoutes);
 app.use("/api", postRoutes);
-
+ 
 
 app.listen(process.env.PORT, () => {
     console.log("server is running on PORT: " + process.env.PORT);

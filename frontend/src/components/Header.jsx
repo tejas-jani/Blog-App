@@ -36,7 +36,7 @@ export const Header = () => {
   return (
     <header>
       <Link to="/" className="logo">
-        MyBlog
+      Reader.me
       </Link>
       <nav>
         {username && (
